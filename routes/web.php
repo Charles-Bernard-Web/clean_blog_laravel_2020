@@ -14,11 +14,18 @@ use App\Http\Controllers\PagesController;
 |
 */
 
+// VIEW COMPOSERS ------------------------------------------
+  View::composer('pages._menu', function($view){
+    $view->with('pages', App\Models\Page::all());
+  });
+
+
+
 // Route::get('/test', [TestController::class, 'index']);
 
 Route::get('/', [PagesController::class, 'show'])->name('pages.show');
 
-Route::get('/pages/{id}/{slug}', [PagesController::class, 'show'])
+Route::get('/pages/{page}/{slug}', [PagesController::class, 'show'])
 ->where(['id' =>'[1-9][0-9]*',
         'slug' =>'[a-z0-9][a-z0-9\-]*'])
         ->name('pages.show');
