@@ -6,7 +6,8 @@
 <ul class="navbar-nav ml-auto">
   @foreach ($pages as $page)
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('pages.show', ['page' => $page->id, 'slug' => 'turlututu']) }}">
+      <a class="nav-link" href="{{ route('pages.show', ['page' => $page->id,
+         'slug' => Str::slug($page->titre,'-')]) }}">
         {{ $page->titreMenu }}
       </a>
     </li>
