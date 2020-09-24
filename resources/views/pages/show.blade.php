@@ -28,6 +28,11 @@
           {!! html_entity_decode($page->texte) !!}
         </div>
         {{-- Ici viennent les contenus complémentaires (posts, formulaire, ...) --}}
+        @if ($page->id === 1)
+          @include('posts._index')
+          @elseif ($page->id === 3)
+          @include('template.partials._contact_form')
+        @endif
       </div>
     </div>
   </div>

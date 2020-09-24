@@ -19,6 +19,9 @@ use App\Http\Controllers\PagesController;
     $view->with('pages', App\Models\Page::orderBy('tri', 'asc')->get());
   });
 
+  View::composer('posts._index', function($view){
+    $view->with('posts', App\Models\Post::orderBy('datePublication', 'desc')->take(10)->get());
+  });
 
 
 // Route::get('/test', [TestController::class, 'index']);
@@ -29,5 +32,6 @@ Route::get('/pages/{page}/{slug}', [PagesController::class, 'show'])
 ->where(['id' =>'[1-9][0-9]*',
         'slug' =>'[a-z0-9][a-z0-9\-]*'])
         ->name('pages.show');
+
 
 // Route::resource('pages', PagesController::class)->only(['index', 'show']);
