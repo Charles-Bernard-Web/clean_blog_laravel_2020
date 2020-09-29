@@ -12,4 +12,7 @@ class Post extends Model
     public function author() {
       return $this->belongsTo('App\Models\Author', 'author_id', 'id');
     }
+    public function tags(){
+      return $this->belongsToMany('App\Models\Tag','posts_has_tags');
+    }
 }

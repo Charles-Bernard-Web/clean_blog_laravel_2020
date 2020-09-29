@@ -24,6 +24,13 @@
         <p>Author : {{$post->author->lastname}} {{$post->author->firstname}}</p>
       </div>
 
+      <ul>
+        @foreach ($post->tags as $tag)
+          <li>{{$tag->nom}}</li>
+
+        @endforeach
+      </ul>
+
       <hr>
     </li>
   @endforeach

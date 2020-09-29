@@ -16,6 +16,15 @@
             <h1>{{ $post->titre }}</h1>
             <h2 class="subheading">{{ $post->sousTitre }}</h2>
             <span class="meta">Posted on {{ $post->datePublication }} by {{ $post->author->firstname }} {{ $post->author->lastname }}</span>
+            <ul>
+              @foreach ($post->tags as $tag)
+
+                <div class="">
+                  {{$tag->nom}}
+                </div>
+
+              @endforeach
+            </ul>
           </div>
         </div>
       </div>
