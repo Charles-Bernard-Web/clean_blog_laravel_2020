@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,11 @@ Route::get('/pages/{page}/{slug}', [PagesController::class, 'show'])
 ->where(['id' =>'[1-9][0-9]*',
         'slug' =>'[a-z0-9][a-z0-9\-]*'])
         ->name('pages.show');
+
+Route::get('posts/{post}/{slug}', [PostsController::class, 'show'])
+        ->where(['post' =>'[1-9][0-9]*',
+        'slug' =>'[a-z0-9][a-z0-9\-]*'])
+        ->name('posts.show');
 
 
 // Route::resource('pages', PagesController::class)->only(['index', 'show']);

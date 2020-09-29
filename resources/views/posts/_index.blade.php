@@ -9,7 +9,10 @@
   @foreach ($posts as $post)
     <li class="nav-item">
       <div class="post-preview">
-        <a href="post.html">
+        <a href="{{route('posts.show', [
+          'post' => $post->id,
+          'slug' => Str::slug($post->titre, '-')
+        ]) }}">
           <h2 class="post-title">
             {{$post->titre}}
           </h2>
@@ -18,7 +21,9 @@
           </h3>
         </a>
         <p class="post-meta">{{$post->datePublication}}</p>
+        <p>Author : {{$post->author->lastname}} {{$post->author->firstname}}</p>
       </div>
+
       <hr>
     </li>
   @endforeach
