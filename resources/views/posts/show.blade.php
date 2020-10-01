@@ -16,7 +16,18 @@
             <h1>{{ $post->titre }}</h1>
             <h2 class="subheading">{{ $post->sousTitre }}</h2>
             <span class="meta">Posted on {{ $post->datePublication }} by {{ $post->author->firstname }} {{ $post->author->lastname }}</span>
+            <div class="">
+              Nombre de posts publié par {{$post->author->firstname}} {{ count($post->author->posts) }}
+            </div>
+            <span>Nombre de posts ayant ces tags</span>
             <ul>
+
+              @foreach ($post->tags as $tag)
+
+                <li>{{$tag->nom}} {{  count($tag->posts) }} </li>
+
+              @endforeach
+
             </ul>
           </div>
         </div>
@@ -40,8 +51,7 @@
           <h2>Posts du même auteur:</h2>
           <h3>
             Liste des {{ count($post->author->posts) }} posts de cet auteur
-
-            </h3>
+          </h3>
           <ul>
             @foreach ($post->author->posts as $postAuthor)
               @if($post->id !== $postAuthor->id)
