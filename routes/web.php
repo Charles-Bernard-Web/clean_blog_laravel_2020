@@ -25,6 +25,7 @@ use App\Http\Controllers\PostsController;
   });
 
 
+
 // Route::get('/test', [TestController::class, 'index']);
 
 Route::get('/', [PagesController::class, 'show'])->name('homepage.show');

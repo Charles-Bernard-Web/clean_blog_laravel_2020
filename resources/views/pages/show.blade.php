@@ -29,10 +29,20 @@
         </div>
         {{-- Ici viennent les contenus complémentaires (posts, formulaire, ...) --}}
         @if ($page->id === 1)
+          {{-- On va charger la vue index des posts --}}
           @include('posts._index')
-          @elseif ($page->id === 3)
+
+        @elseif ($page->id === 3)
           @include('template.partials._contact_form')
         @endif
+      </div>
+      <div class="col-lg-4 col-md-2">
+        <ul class="list-group">
+          <li class="list-group-item"><a href=""><strong>Tags</strong></a></li>
+          <li class="list-group-item"><a href="">lll</a></li>
+          <li class="list-group-item"><a href="">Quia.</a></li>
+          <li class="list-group-item"><a href="">Accusamus?</a></li>
+        </ul>
       </div>
     </div>
   </div>
